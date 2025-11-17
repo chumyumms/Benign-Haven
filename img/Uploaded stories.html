@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Reflections | Benign Haven</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Open Sans', sans-serif;
+      color: #08342e;
+      text-align: center;
+      background:
+        linear-gradient(rgba(180, 233, 199, 0.45), rgba(180, 233, 199, 0.45)),
+        url('imagess/bg3.png') center center / cover no-repeat fixed;
+    }
+
+      header.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(5px);
+    }
+
+    header.navbar .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    header.navbar .logo img {
+      height: 120px;
+    }
+
+    header.navbar .logo span {
+      margin-left: 10px;
+      font-family:'Playfair Display', serif;
+      font-size: 1.5em;
+      font-weight: 600;
+      color: #08342e;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #08342e;
+      margin: 0 12px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.6);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    nav a:hover { background: rgba(255,255,255,0.9); }
+
+    h1 { font-family: 'Playfair Display', serif; font-size: 2.5em; margin: 20px 0; }
+
+    .reflection {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      padding: 15px 20px;
+      margin: 15px auto;
+      max-width: 700px;
+      text-align: left;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .reflection small { display: block; margin-top: 8px; color: #4a6c60; }
+
+    textarea {
+      width: 85%;
+      max-width: 700px;
+      height: 150px;
+      border-radius: 12px;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      resize: none;
+      margin-top: 15px;
+    }
+
+    button {
+      background: #0f5e4d;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 25px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: 0.3s;
+    }
+
+    button:hover { background: #0a4a3b; transform: scale(1.05); }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      color: #08342e;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+<header class="navbar">
+  <div class="logo">
+    <img src="imagess/logo2.png" alt="Benign Haven Logo">
+    <span>Benign Haven</span>
+  </div>
+  <nav>
+    <a href="Benign Haven.html">Home</a>
+  </nav>
+</header>
+
+<h1>Community Reflections 🌱</h1>
+
+<div id="reflectionList"></div>
+
+<h2>Share Your Reflection</h2>
+<textarea id="newReflection" placeholder="Write your thoughts here..."></textarea><br>
+<button onclick="addReflection()">Submit Reflection 💌</button>
+
+<footer>Benign Haven – You are not alone 🌿</footer>
+
+<script>
+function loadReflections() {
+  const list = document.getElementById('reflectionList');
+  const reflections = JSON.parse(localStorage.getItem('journalEntries') || '[]');
+
+  list.innerHTML = '';
+  if(reflections.length === 0){
+    list.innerHTML = '<p>No reflections yet 💭 Be the first to share!</p>';
+    return;
+  }
+
+  reflections.forEach(ref => {
+    const div = document.createElement('div');
+    div.className = 'reflection';
+    div.innerHTML = `<p>${ref.text}</p><small>🕒 ${ref.date}</small>`;
+    list.appendChild(div);
+  });
+}
+
+function addReflection() {
+  const input = document.getElementById('newReflection');
+  const text = input.value.trim();
+  if(!text) { alert('Please write something first 💚'); return; }
+
+  const reflections = JSON.parse(localStorage.getItem('journalEntries') || '[]');
+  reflections.push({ text, date: new Date().toLocaleString() });
+  localStorage.setItem('journalEntries', JSON.stringify(reflections));
+
+  input.value = '';
+  loadReflections();
+}
+
+loadReflections();
+</script>
+</body>
+</html>
+

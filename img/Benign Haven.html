@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benign Haven</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0%;
+      padding: 20px;
+      font-family: 'Open Sans', sans-serif;
+      color: #08342e;
+      text-align: center;
+      background:
+        linear-gradient(rgba(180, 233, 199, 0.45), rgba(180, 233, 199, 0.45)),
+        url('imagess/bg3.png') center center / cover no-repeat fixed;
+    }
+
+    header.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(5px);
+    }
+
+    header.navbar .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    header.navbar .logo img {
+      height: 120px;
+    }
+
+    header.navbar .logo span {
+      margin-left: 10px;
+      font-family:'Playfair Display', serif;
+      font-size: 1.5em;
+      font-weight: 600;
+      color: #08342e;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #08342e;
+      margin: 0 12px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.6);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    nav a:hover { background: rgba(255,255,255,0.9); }
+
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.6);
+      margin: 30px auto;
+      width: 85%;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1.section-title {
+      font-family: 'Playfair Display', serif;
+      color: #08342e;
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+      color: rgba(53, 94, 87, 0.9);
+    }
+
+    table {
+      margin: 0 auto;
+      width: 80%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td { padding: 12px; border-bottom: 1px solid rgba(53, 94, 87, 0.3); }
+    th { background-color: rgba(180, 220, 200, 0.6); }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.5);
+      color: rgba(53, 94, 87, 0.9);
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+
+    .community-btn {
+      margin-top: 25px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      background: #0f5e4d;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .community-btn:hover { background: #0a4a3b; transform: scale(1.05); }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="imagess/logo2.png" alt="Benign Haven Logo">
+      <span>Benign Haven</span>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#helplines">Helplines</a>
+    </nav>
+  </header>
+
+  <section id="home" class="section">
+    <h1 class="section-title">Welcome to Benign Haven 🌿</h1>
+    <p>A gentle space for healing minds and hearts. Here, you are heard, valued, and never alone.</p>
+    <button class="community-btn" onclick="window.location.href='Uploaded stories.html'">Share Your Story</button>
+  </section>
+
+  <section id="about" class="section">
+    <h1 class="section-title">About the Advocacy</h1>
+    <p>Benign Haven is dedicated to spreading mental health awareness and creating a safe environment for open conversations. Healing takes time, and it starts with compassion and understanding.</p>
+  </section>
+
+  <section id="helplines" class="section">
+    <h1 class="section-title">Support Helplines</h1>
+    <p>If you or someone you know needs help, reach out:</p>
+    <table>
+      <tr>
+        <th>Organization</th>
+        <th>Contact</th>
+        <th>Availability</th>
+      </tr>
+      <tr>
+        <td>NCMH Crisis Hotline</td>
+        <td>1553 (Luzon) / 0966-351-4518</td>
+        <td>24/7</td>
+      </tr>
+      <tr>
+        <td>Hopeline PH</td>
+        <td>0917-558-4673</td>
+        <td>24/7</td>
+      </tr>
+      <tr>
+        <td>DOH Mental Health Helpline</td>
+        <td>1553</td>
+        <td>24/7</td>
+      </tr>
+    </table>
+  </section>
+
+  <footer>
+    <p>Benign Haven – You are not alone 🌱</p>
+  </footer>
+</body>
+</html>
